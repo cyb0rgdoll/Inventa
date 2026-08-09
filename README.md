@@ -4,17 +4,10 @@ Inventa is a defensive asset discovery and inventory tool for authorized environ
 
 The purpose of Inventa is to make discovery work simpler: gather a clear picture of what exists in scope, reduce manual command juggling, and produce evidence that can be reviewed or included in security documentation.
 
-## ⚠️ Authorized Use Only
-
 Inventa performs active reconnaissance and network scanning. It is intended
 solely for **authorized** security testing, asset discovery, research, and
 educational use. **Use it only against systems and networks you own or have
 explicit, written permission to assess.**
-
-You are responsible for ensuring your use complies with all applicable laws,
-regulations, contracts, policies, and authorization boundaries. Unauthorized
-scanning may be illegal. The authors and contributors accept no liability for
-misuse or for any damage caused by this tool.
 
 ## What Inventa Does
 
@@ -108,3 +101,9 @@ supported variable names with empty values.
 - [SECURITY.md](SECURITY.md) — how to report a vulnerability
 - [CONTRIBUTING.md](CONTRIBUTING.md) — development setup and contribution rules
 - [LICENSE](LICENSE)
+  
+
+You are responsible for ensuring your use complies with all applicable laws,
+regulations, contracts, policies, and authorization boundaries. Unauthorized
+scanning may be illegal. The authors and contributors accept no liability for
+misuse or for any damage caused by this tool.
