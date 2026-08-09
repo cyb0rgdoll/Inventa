@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/screenshot.svg" alt="Inventa CLI" width="600">
+</p>
+
 # Inventa
 
 Inventa is a defensive asset discovery and inventory tool for authorized environments. It helps identify hosts, open services, device details, domains, web exposure, and cloud assets, then saves the findings in practical report formats.
