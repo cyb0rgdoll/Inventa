@@ -1,0 +1,163 @@
+services:
+  scanner:
+    build:
+      context: ../..
+      dockerfile: labs/docker-assets/scanner/Dockerfile
+    profiles: ["scanner"]
+    working_dir: /workspace
+    volumes:
+      - ../..:/workspace
+    environment:
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_DEFAULT_REGION: ap-southeast-2
+      AWS_ENDPOINT_URL: http://localstack:4566
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.250
+      hybrid_segment:
+        ipv4_address: 172.28.61.250
+
+  onprem-nginx:
+    image: nginx:1.27-alpine
+    container_name: inventa-onprem-nginx
+    volumes:
+      - ./www/index.html:/usr/share/nginx/html/index.html:ro
+    ports:
+      - "18080:80"
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.10
+
+  onprem-apache:
+    image: httpd:2.4-alpine
+    container_name: inventa-onprem-apache
+    ports:
+      - "18081:80"
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.11
+
+  onprem-postgres:
+    image: postgres:16-alpine
+    container_name: inventa-onprem-postgres
+    environment:
+      POSTGRES_DB: inventa_lab
+      POSTGRES_USER: inventa
+      POSTGRES_PASSWORD: inventa_lab_password
+    ports:
+      - "15432:5432"
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.20
+
+  onprem-mariadb:
+    image: mariadb:11
+    container_name: inventa-onprem-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: inventa_lab_password
+      MARIADB_DATABASE: inventa_lab
+    ports:
+      - "13306:3306"
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.21
+
+  onprem-redis:
+    image: redis:7-alpine
+    container_name: inventa-onprem-redis
+    command: ["redis-server", "--appendonly", "no"]
+    ports:
+      - "16379:6379"
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.22
+
+  onprem-mqtt:
+    image: eclipse-mosquitto:2
+    container_name: inventa-onprem-mqtt
+    ports:
+      - "11883:1883"
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.23
+
+  windows-file-sim:
+    image: dperson/samba
+    container_name: inventa-windows-file-sim
+    command: ["-p", "-u", "inventa;inventa_lab_password", "-s", "share;/share;yes;no;no;inventa"]
+    ports:
+      - "10139:139"
+      - "10445:445"
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.30
+
+  dmz-nginx:
+    image: nginx:1.27-alpine
+    container_name: inventa-dmz-nginx
+    ports:
+      - "28080:80"
+    networks:
+      hybrid_segment:
+        ipv4_address: 172.28.61.10
+
+  dmz-apache:
+    image: httpd:2.4-alpine
+    container_name: inventa-dmz-apache
+    ports:
+      - "28081:80"
+    networks:
+      hybrid_segment:
+        ipv4_address: 172.28.61.11
+
+  dmz-mail:
+    image: mailhog/mailhog:v1.0.1
+    container_name: inventa-dmz-mail
+    ports:
+      - "11025:1025"
+      - "18025:8025"
+    networks:
+      hybrid_segment:
+        ipv4_address: 172.28.61.20
+
+  boundary-router:
+    image: wbitt/network-multitool:alpine-extra
+    container_name: inventa-boundary-router
+    networks:
+      onprem_segment:
+        ipv4_address: 172.28.60.254
+      hybrid_segment:
+        ipv4_address: 172.28.61.254
+
+  localstack:
+    image: localstack/localstack:3
+    container_name: inventa-localstack
+    environment:
+      SERVICES: s3,ec2,rds,sts
+      AWS_DEFAULT_REGION: ap-southeast-2
+      DEBUG: "0"
+    ports:
+      - "4566:4566"
+    volumes:
+      - ./localstack/init:/etc/localstack/init/ready.d:ro
+    networks:
+      hybrid_segment:
+        ipv4_address: 172.28.61.30
+
+networks:
+  onprem_segment:
+    name: inventa_onprem_segment
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.60.0/24
+  hybrid_segment:
+    name: inventa_hybrid_segment
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.61.0/24

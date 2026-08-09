@@ -1,0 +1,77 @@
+# Inventa - Git Ignore
+
+# ---- Secrets & credentials (NEVER commit) ----
+.env
+.env.*
+!.env.example
+api_keys.sh
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+*.ovpn
+
+# ---- Scan output / evidence (may contain private infrastructure) ----
+results/
+results_backup_*/
+evaluation/results/
+evaluation/screenshots/
+quickscan__*/
+nmap_*.xml
+*.pcap
+
+# ---- Local target/scope lists (private) ----
+my_scope.txt
+my_targets.txt
+websites.txt
+
+# ---- Local databases ----
+*.sqlite
+*.sqlite3
+*.db
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# ---- Temporary ----
+*.log
+*.tmp
+*.bak
+
+# ---- Local agent / runtime artifacts ----
+.omx/
+.codex/
+.agents/
+.claude/
+
+# ---- Vendor checkouts & non-Inventa workstation tools ----
+# External recon tools are installed into the ROOT tools/ dir at setup time,
+# not committed. See SETUP_TOOLS.md. (Anchored with a leading slash so the
+# app's own scanning/tools/ wrapper package is NOT ignored.)
+/tools/
+/masscan/
+/bin/
+/presentation_updates/
+/Inventa Design System/
+/install.ps1
+ShareX-*/
+ShareX-*.zip

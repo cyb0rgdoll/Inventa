@@ -1,0 +1,57 @@
+# Inventa Python Dependencies — PINNED (reproducible install)
+#
+# These versions are pinned to the documented minimum-supported baseline.
+# Before a release, regenerate this file from the environment you actually
+# tested against so the pins match what you shipped:
+#
+#     python3 -m venv .venv && source .venv/bin/activate
+#     pip install -r requirements.in
+#     pip freeze > requirements.txt
+#
+# or, for hash-verified supply-chain safety:
+#
+#     pip install pip-tools
+#     pip-compile --generate-hashes -o requirements.txt requirements.in
+#
+# Install:  python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+
+# Core
+requests==2.31.0
+urllib3==2.0.0
+
+# Data Processing
+python-nmap==0.7.1
+dnspython==2.4.0
+
+# OSINT & Threat Intelligence
+shodan==1.31.0
+censys==2.2.0
+virustotal-api==1.1.11
+
+# Cloud Providers
+boto3==1.28.0
+azure-identity==1.14.0
+azure-mgmt-compute==30.0.0
+google-cloud-compute==1.14.0
+
+# Utilities
+colorama==0.4.6
+tabulate==0.9.0
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# Web
+beautifulsoup4==4.12.0
+lxml==4.9.3
+
+# Network Analysis
+scapy==2.5.0
+netifaces==0.11.0
+
+# Report Generation
+jinja2==3.1.2
+markdown==3.4.4
+
+# TLS/SSL
+cryptography==41.0.0
+pyOpenSSL==23.2.0

@@ -1,0 +1,51 @@
+# Exclude sensitive and local files from Docker image
+.git
+.gitignore
+.env
+.env.local
+*.pem
+*.key
+*.crt
+api_keys.sh
+credentials.json
+.aws/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.claude/
+.agents/
+.codex/
+.omx/
+results/
+evaluation/
+labs/
+examples/
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+*.swp
+*.swo
+*~
+# Local document files
+*.pdf
+*.docx
+*.pptx
+*.ps1
+# Local test/debug files
+*_scope.txt
+*_targets.txt
+websites.txt
+.pytest_cache/
+coverage/
+dist/
+build/
+# Large or unnecessary
+*.tar.gz
+*.zip
+.git/
+.gitmodules
+README.md
+docs/

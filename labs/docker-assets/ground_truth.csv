@@ -1,0 +1,14 @@
+asset_id,segment,ip,hostname,platform_model,asset_class,expected_services,notes
+1,on-premises,172.28.60.10,onprem-nginx,Linux container,web server,tcp/80,nginx HTTP asset
+2,on-premises,172.28.60.11,onprem-apache,Linux container,web server,tcp/80,Apache HTTP asset
+3,on-premises,172.28.60.20,onprem-postgres,Linux container,database,tcp/5432,PostgreSQL asset
+4,on-premises,172.28.60.21,onprem-mariadb,Linux container,database,tcp/3306,MariaDB asset
+5,on-premises,172.28.60.22,onprem-redis,Linux container,cache,tcp/6379,Redis asset
+6,on-premises,172.28.60.23,onprem-mqtt,Linux container,message broker,tcp/1883,MQTT broker asset
+7,on-premises,172.28.60.30,windows-file-sim,Windows service simulator,file service,tcp/139;tcp/445,Samba-backed stand-in for Windows file server in Docker-only runs
+8,on-premises/hybrid-boundary,172.28.60.254,boundary-router,network device emulator,boundary device,icmp/http utility,Multihomed boundary emulator
+9,hybrid-boundary,172.28.61.10,dmz-nginx,Linux container,dmz web server,tcp/80,DMZ nginx asset
+10,hybrid-boundary,172.28.61.11,dmz-apache,Linux container,dmz web server,tcp/80,DMZ Apache asset
+11,hybrid-boundary,172.28.61.20,dmz-mail,Linux container,mail service,tcp/1025;tcp/8025,MailHog SMTP and web UI
+12,hybrid-cloud-fallback,172.28.61.30,localstack,AWS simulator,cloud endpoint,tcp/4566,LocalStack endpoint with S3 and VPC simulation
+13,hybrid-boundary,172.28.61.254,boundary-router,network device emulator,boundary device,icmp/http utility,Second interface of multihomed boundary emulator
