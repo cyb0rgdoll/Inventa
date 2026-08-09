@@ -1,11 +1,8 @@
-## Inventa is a defensive asset discovery and inventory tool for authorized environments. It helps identify hosts, open services, device details, domains, web exposure, and cloud assets, then saves the findings in practical report formats.
+## Inventa is a defensive asset discovery, recon and inventory tool.
 
-The purpose of Inventa is to make discovery work simpler: gather a clear picture of what exists in scope, reduce manual command juggling, and produce evidence that can be reviewed or included in security documentation.
+It helps identify hosts, open services, device details, domains, web exposure, and cloud assets, then saves the findings in practical report formats. The purpose of Inventa is to make discovery work simpler: gather a clear picture of what exists in scope, reduce manual command juggling, and produce evidence that can be reviewed or included in security documentation.
 
-Inventa performs active reconnaissance and network scanning. It is intended
-solely for **authorized** security testing, asset discovery, research, and
-educational use. **Use it only against systems and networks you own or have
-explicit, written permission to assess.**
+Inventa performs active reconnaissance and network scanning. It is intended solely for **authorized** security testing, asset discovery, research, and educational use. Use it only against systems and networks you own or have explicit, written permission to assess.
 
 ## What Inventa Does
 
@@ -48,7 +45,7 @@ Use **Configuration** to create:
 - `targets.txt`: IPs, hosts, or CIDR ranges to assess
 - `.env`: optional API keys
 
-## Simple Commands
+## Commands
 
 ```bash
 python3 inventa.py quick
@@ -96,8 +93,6 @@ supported variable names with empty values.
 
 - [SETUP_TOOLS.md](SETUP_TOOLS.md) — installing nmap, masscan, and optional recon tools
 - [QUICK_START.md](QUICK_START.md) — fastest path to a first scan
-- [SECURITY.md](SECURITY.md) — how to report a vulnerability
-- [CONTRIBUTING.md](CONTRIBUTING.md) — development setup and contribution rules
 - [LICENSE](LICENSE)
   
 
