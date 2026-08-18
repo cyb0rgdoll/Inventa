@@ -4,7 +4,7 @@
 
 It helps identify hosts, open services, device details, domains, web exposure, and cloud assets, then saves the findings in practical report formats. The purpose of Inventa is to make discovery work simpler: gather a clear picture of what exists in scope, reduce manual command juggling, and produce evidence that can be reviewed or included in security documentation.
 
-Inventa performs active reconnaissance and network scanning. It is intended solely for **authorized** security testing, asset discovery, research, and educational use. Use it only against systems and networks you own or have explicit, written permission to assess.
+Inventa performs powerful active reconnaissance, OSINT and network scanning. It is intended solely for **authorized** security testing, asset discovery, research, and educational use.
 
 ## What Inventa Does
 
@@ -83,20 +83,21 @@ Most users should only need the menu or simple commands. Advanced flags are stil
 python3 inventa.py --advanced-help
 ```
 
-## Safety
+## Documentation
+
+- [SETUP_TOOLS.md](SETUP_TOOLS.md) — installing nmap, masscan, and optional recon tools
+- [QUICK_START.md](QUICK_START.md) — fastest path to a first scan
+- [LICENSE](LICENSE)
+
+  
+  
+## Notice
 
 Only scan systems you own or have explicit permission to assess (see
 **Authorized Use** above). Keep credentials, generated evidence, local
 archives, and unrelated workstation tools out of Git. API keys live in a local
 `.env` file, which is git-ignored — never commit it. `.env.example` shows the
 supported variable names with empty values.
-
-## Documentation
-
-- [SETUP_TOOLS.md](SETUP_TOOLS.md) — installing nmap, masscan, and optional recon tools
-- [QUICK_START.md](QUICK_START.md) — fastest path to a first scan
-- [LICENSE](LICENSE)
-  
 
 You are responsible for ensuring your use complies with all applicable laws,
 regulations, contracts, policies, and authorization boundaries. Unauthorized
