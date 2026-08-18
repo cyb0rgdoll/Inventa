@@ -1,5 +1,4 @@
-<img width="848" height="677" alt="Inventa GitHub logo" src="https://github.com/user-attachments/assets/0dda3858-3041-411b-a801-b86d568d1242" />
-
+<img width="2560" height="1526" alt="inventa-help-menu" src="https://github.com/user-attachments/assets/315960e4-c7b8-41cb-aad9-f0cddcb7a830" />
 
 ## Inventa is a defensive asset discovery, recon and inventory tool.
 
