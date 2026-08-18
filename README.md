@@ -1,3 +1,6 @@
+<img width="848" height="677" alt="Inventa GitHub logo" src="https://github.com/user-attachments/assets/0dda3858-3041-411b-a801-b86d568d1242" />
+
+
 ## Inventa is a defensive asset discovery, recon and inventory tool.
 
 It helps identify hosts, open services, device details, domains, web exposure, and cloud assets, then saves the findings in practical report formats. The purpose of Inventa is to make discovery work simpler: gather a clear picture of what exists in scope, reduce manual command juggling, and produce evidence that can be reviewed or included in security documentation.
